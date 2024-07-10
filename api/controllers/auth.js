@@ -51,8 +51,7 @@ export const signup = async (req, res, next) => {
       })
       .json(rest);
   } catch (error) {
-    console.log(error);
-    res.status(400).json(error.message);
+    next(error);
   }
 };
 
@@ -84,7 +83,6 @@ export const login = async (req, res, next) => {
       })
       .json(rest);
   } catch (error) {
-    console.log('error in the signin controller');
-    res.status(400).json(error.message);
+    next(error);
   }
 };
